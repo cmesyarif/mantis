@@ -1,0 +1,6 @@
+RewriteEngine On
+
+# Paksa HTTPS untuk domain utama
+RewriteCond %{HTTP_HOST} ^(www\.)?man3sumbawa\.sch\.id$ [NC]
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://man3sumbawa.sch.id%{REQUEST_URI} [L,R=301]
