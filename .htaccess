@@ -2,5 +2,11 @@ RewriteEngine On
 
 # Paksa HTTPS untuk domain utama
 RewriteCond %{HTTP_HOST} ^(www\.)?man3sumbawa\.sch\.id$ [NC]
-RewriteCond %{HTTPS} off
+RewriteCond %{HTTPS} !=on
 RewriteRule ^ https://man3sumbawa.sch.id%{REQUEST_URI} [L,R=301]
+
+# Keamanan: cegah orang melihat isi folder
+Options -Indexes
+
+# Tentukan halaman default
+DirectoryIndex index.html
